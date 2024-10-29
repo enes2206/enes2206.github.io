@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onlineshop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .product:last-child {
+            border-bottom: none;
+        }
+        .product-info {
+            flex-grow: 1;
+        }
+        .product-title {
+            font-size: 1.2em;
+            margin: 0;
+        }
+        .product-price {
+            color: #555;
+            margin: 5px 0;
+        }
+        .product button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Produkte im Onlineshop</h1>
+
+    <div class="product">
+        <div class="product-info">
+            <h2 class="product-title">Produkt 1</h2>
+            <p class="product-price">Preis: 100 € (ohne MwSt)</p>
+        </div>
+        <button onclick="sendInquiry('Produkt 1', '100 €')">Anfrage senden</button>
+    </div>
+
+    <div class="product">
+        <div class="product-info">
+            <h2 class="product-title">Produkt 2</h2>
+            <p class="product-price">Preis: 200 € (ohne MwSt)</p>
+        </div>
+        <button onclick="sendInquiry('Produkt 2', '200 €')">Anfrage senden</button>
+    </div>
+
+    <!-- Weitere Produkte können hier hinzugefügt werden -->
+
+</div>
+
+<script>
+    function sendInquiry(product, price) {
+        const email = "deine.email@domain.de"; // Deine E-Mail-Adresse hier einfügen
+        const subject = `Anfrage für ${product}`;
+        const body = `Ich möchte eine Anfrage für das Produkt "${product}" zum Preis von ${price} (ohne MwSt) stellen.`;
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+</script>
+
+</body>
+</html>
